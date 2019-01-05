@@ -1,3 +1,8 @@
+---
+layout = post
+---
+
+
 # Primera clase
 
 [El dia en 30, Argentina](https://www.youtube.com/watch?v=6x2wYlLdIJk)
