@@ -10,21 +10,16 @@ title: Introducción a la programación competitiva
 
 ## Presentacion de alumnos.
 
-1. [Piero Alexis - piero759@gmail.com](piero759@gmail.com)
+* Nombre 
 
-2. [Eduardo Marañon	- eduarfdo230100@gmail.com](eduarfdo230100@gmail.com)
+* Edad
 
-3. [Bruno Jair Escobedo - bescobedoa@uni.pe](bescobedoa@uni.pe)
+* Especialidad
 
-4. [Cristian Cruz Coro - ccruzc.24.08@gmail.com](ccruz.24.08@gmail.com)
+* Que espectativas tienes
 
-5. [Manuel Chonon - machfe14@gmail.com](machfe14@gmail.com)
+* Motivo de unirte al grupo
 
-6. [Josue Huaroto Villavicencio - josue.huaroto.v@uni.pe](josue.huaroto.v@uni.pe)
-
-7. [Ronaldo Nolasco- ronaldonolascochavez@gmail.com](ronaldonolascochavez@gmail.com)
-
-8. [Eduardo Luo Lin - edu\_luo@hotmail.com](edu_luo@hotmail.com)
 
 ## Creacion de cuentas.
 
@@ -46,16 +41,22 @@ title: Introducción a la programación competitiva
 
 * [Github](https://github.com/)
 
-## Explicacion de primer problema.
+### recomendación 
 
-* [A. Determine Line](https://codeforces.com/contest/1056/problem/A)
+* cree una carpeta llamada 'competitiveProgramming'
 
-## Como debo guardar mi problema.
+* por cada juez que use cree una carpeta con su nombre
 
-* sugerencias
+* comente su codigo en la parte superior del mismo
 
 * codigos de muestra
 
 	1. [Spoj - Calculate The Cost](https://github.com/racsosabe/CompetitiveProgramming/blob/master/SPOJ/CCOST.cpp)
 	
 	2. [Hackerrank - Meeting Point](https://github.com/miguelAlessandro/CompetitiveProgramming/blob/master/HACKR/meeting_point.cpp)
+
+## Explicacion de primer problema.
+
+* [A. Determine Line](https://codeforces.com/contest/1056/problem/A)
+
+
