@@ -3,6 +3,8 @@ layout: post
 title: rotating calipers
 ---
 
+[rotating calipers]({{site.baseurl}}/images/rotating_calipers.gif)
+
 # referencias:
 
 - [blog recopilatorio / codeforces / rumman_sust](https://codeforces.com/blog/entry/46162)
