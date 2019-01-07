@@ -9,6 +9,7 @@ title: rotating calipers
 
 - [blog recopilatorio / codeforces / rumman_sust](https://codeforces.com/blog/entry/46162)
 
+- [blog / mc gill university](http://www-cgrl.cs.mcgill.ca/~godfried/research/calipers.html)
 
 
 # problemas:
