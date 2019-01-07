@@ -13,7 +13,9 @@ title: rotating calipers
 
 - [Solving geometric problems with the rotating calipers](https://www.cs.swarthmore.edu/~adanner/cs97/s08/pdf/calipers.pdf)
 
-- [Computational Geometry / Michael Ian Shamos](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.366.8570&rep=rep1&type=pdf)http://faculty.cs.tamu.edu/chen/notes/geo.pdf
+- [Computational Geometry / Michael Ian Shamos](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.366.8570&rep=rep1&type=pdf)
+
+- http://faculty.cs.tamu.edu/chen/notes/geo.pdf
 
 - [wiki](https://en.wikipedia.org/wiki/Rotating_calipers#cite_note-11)
 
