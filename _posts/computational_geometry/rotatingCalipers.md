@@ -13,6 +13,8 @@ title: rotating calipers
 
 - [Solving geometric problems with the rotating calipers](https://www.cs.swarthmore.edu/~adanner/cs97/s08/pdf/calipers.pdf)
 
+- [Computational Geometry / Michael Ian Shamos](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.366.8570&rep=rep1&type=pdf)
+
 # problemas:
 
 - [roberthood / kattis](https://open.kattis.com/problems/roberthood) 
