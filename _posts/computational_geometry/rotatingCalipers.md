@@ -15,11 +15,9 @@ title: rotating calipers
 
 - [Computational Geometry / Michael Ian Shamos](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.366.8570&rep=rep1&type=pdf)
 
-- http://faculty.cs.tamu.edu/chen/notes/geo.pdf
-
 - [wiki](https://en.wikipedia.org/wiki/Rotating_calipers#cite_note-11)
 
-- [http://faculty.cs.tamu.edu/chen/notes/geo.pdf](http://faculty.cs.tamu.edu/chen/notes/geo.pdf)
+- [pdf](http://faculty.cs.tamu.edu/chen/notes/geo.pdf)
 
 # problemas:
 
