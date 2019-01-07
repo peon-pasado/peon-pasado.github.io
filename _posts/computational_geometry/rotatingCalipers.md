@@ -11,6 +11,7 @@ title: rotating calipers
 
 - [blog / mc gill university](http://www-cgrl.cs.mcgill.ca/~godfried/research/calipers.html)
 
+- [Solving geometric problems with the rotating calipers](https://www.cs.swarthmore.edu/~adanner/cs97/s08/pdf/calipers.pdf)
 
 # problemas:
 
