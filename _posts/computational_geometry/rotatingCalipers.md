@@ -20,4 +20,4 @@ title: rotating calipers
 
 - [1111 - Trash Removal / Uva](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3552)
 
-- [Fosil in the ice](https://www.spoj.com/problems/TFOSS/)
+- [Fosil in the ice / Spoj](https://www.spoj.com/problems/TFOSS/)
