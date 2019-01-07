@@ -3,7 +3,7 @@ layout: post
 title: rotating calipers
 ---
 
-![rotating calipers]({{site.baseurl}}/images/rotating_calipers)
+![rotating calipers]({{site.baseurl}}/images/rotating_calipers.gif)
 
 # referencias:
 
