@@ -9,7 +9,7 @@ eficientemente con alguna combinación de estos paradigmas, disjunta o no.
 
 Este paradigma de busqueda completa se basa, como su nombre lo dice, en realizar una exploración total
 sobre la estructura de la solución de un problema. Para ello se procede desde métodos simples como
-_fuerza bruta_, algo más refinado como _backtracking_ hasta métodos heurísticos que involucran conceptos
+_fuerza bruta_, hasta algo más refinado como _backtracking_ hasta métodos heurísticos que involucran conceptos
 de inteligencia artificial.
 
 ## ejemplo:
