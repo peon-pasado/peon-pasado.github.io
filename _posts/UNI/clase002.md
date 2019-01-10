@@ -123,5 +123,183 @@ Para esto definiremos complejidad de memoria como la mayor cantidad de memoria q
 
 No implementaremos esta solución, pero esta solución incluye algo más de conocimientos en teoría de números sobretodo funciones generadoras y algo de cálculo complejo. para ello usaremos la función generadora de un dado P(x) tal que tenga n lados y cada uno tenga a\[i\] puntos. por último la solución consta de revisar que la probabilidad de lanzar un dado 3 veces o una vez den el mismo resultado. lanzar un dado 3 veces lo podemos entender como P(x)^3. Luego necesitamos saber que para dos polinomios la conv(P x Q) = conv(P) . conv(Q). Y solo faltaria hacer P x Q = inv(conv(P x Q)) = inv(conv(P) . conv(Q)). y esto se puede lograr con la transformada rápida de fourier en O((n+1000) log (n + 1000)).
 
+## Programación dinámica
+
+Programación dinámica es un enfoque en el cual se hace notorio el cambio de memoria por complejidad, generalmente es usado para problemas de optimización, conteo pero, además para problemas de simulación. Generalmente se procede a guardar los estados o alguna característica específica de los mismo, aunque para problemas más complejos se puede guardar partes del estado que luego se pueden armar con algún tipo de estructura de datos.
+
+### Ejemplo:
+
+dado un array de n elementos, n menor o igual a 100000 y los elementos en el rango \[-10^9, 10^9\], hallar la máxima suma de un subarray.
+
+### Armando una solución eficiente
+
+#### primera solución
+
+Primero debemos fijarnos que la cantidad de subarrays es O(n^2). Para una primera solución podemos hacer el siguiente código O(n^3).
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1e5 + 10;
+int a[maxN];
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; ++i) {
+    scanf("%d", a+i);
+  } 
+  long long maximumSubarraySum = LLONG_MIN;
+  for (int i = 1; i <= n; ++i) {
+    for (int j = i; j <= n; ++j) {
+      long long subarraySum = 0;
+      for (int k = i; k <= j; ++k) {
+        subarraySum += a[k];
+      }
+      maximumSubarraySum = max(maximumSubarraySum, subarraySum);
+    }
+  }
+  printf("%lld\n", maximumSubarraySum);
+  return 0; 
+}
+```
+
+#### segunda solución
+
+Usando nuestro primer enfoque de programación dinámica podemos calcular el tercer for con una simple observación: La suma en el rango \[a, b\] = sum \[1, b\] - sum \[1, a-1\] (note que la suma de un conjunto vacío es 0).
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1e5 + 10;
+int a[maxN];
+long long sum[maxN];
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; ++i) {
+    scanf("%d", a+i);
+  } 
+  for (int i = 1; i <= n; ++i) {
+    sum[i] = sum[i-1] + a[i];
+  }
+  long long maximumSubarraySum = LLONG_MIN;
+  for (int i = 1; i <= n; ++i) {
+    for (int j = i; j <= n; ++j) {
+      maximumSubarraySum = max(maximumSubarraySum, sum[j] - sum[i-1]);
+    }
+  }
+  printf("%lld\n", maximumSubarraySum);
+  return 0;
+}
+```
+#### Tercera solución
+
+Para esta solución hay que cambiar significativamente la idea. para esto usaremos un concepto en programación dinámica llamado __especialización__, esto quiere decir que en vez de pensar dado un array. cual es la maxima suma de un subarray. pensaremos dado un array cual es la suma máxima de un subarray tomando el último elemento (en otras palabras, cual es la maxima suma de un sufijo).
+
+Este pequeño cambio nos da la opción de meterle recursividad, la recursividad nos permite reconocer como guardar los estados. Por tanto la solución sería f(n) = max(a[n-1] + f(n-1), a[n-1]) = a[n-1] + max(0, f(n-1)) con f(0) = 0 (no puedo tomar si no hay elementos). Esto nos está diciendo que primero tomamos el elemento final y luego si la solución para el array sin este elemento es positiva, entonces, la tomo en otro caso solo me quedo con el elemento actual. Finalmente la solución es el máximo para todo n, podemos implementar algo como:
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1e5 + 10;
+int a[maxN];
+long long f[maxN];
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; ++i) {
+    scanf("%d", a+i);
+  } 
+  for (int i = 1; i <= n; ++i) {
+    f[i] = a[i] + max(0, f[i-1]);
+  }
+  long long maximumSubarraySum = LLONG_MIN;
+  for (int i = 1; i <= n; ++i) {
+    maximumSubarraySum = max(maximumSubarraySum, f[i]]);  
+  }
+  printf("%lld\n", maximumSubarraySum);
+  return 0;
+}
+```
+
+## Enfoque codicioso
+
+El enfoque codicioso (_greedy_), plantea mejorar nuestra solución solo tomando la decisión que mejora nuestro estado actual sin fijarse en lo que puede suceder después.
+
+### Ejemplo:
+
+Sergio se está matriculando en la universidad, el solo tiene 30 minutos para hacerlo, y ya consumio casi todo su tiempo. El quiere matricularse en la mayor cantidad de cursos que pueda pero, odia que sus cursos se crucen. dado n intervalos de duración de los cursos, los cursos se repiten en el mismo horario todos los días de la semana, hallar la mayor cantidad de cursos que sergio se pueda matricular.
+
+### Armando una solución eficiente
+
+#### primera solución
+
+Demonos cuenta que una solución es una subsequencia de los horarios, en total hay 2^n subsecuencias, por tanto verificar todas nos demoraría a lo más O(n2^n), aun no haremos un código, esto puede hacerse con recursión o con manejo de bits.
+
+#### segunda solución
+
+Podemos empezar con una solución por programación dinámica, con un enfoque muy parecido al problema anterior. Sea un intervalo, consideremos todos los intervalos que están antes que el actual, entonces nuestra solución sería f(intervalo) = 1 + max(f(algun intervalo anterior)) (tenga en cuenta que las soluciones anteriores tuvieron que ser calculadas, podemos ordenarlos con la función sort).
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1e5 + 10;
+pair<int, int> classes[maxN];
+int dp[maxN];
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; ++i) {
+    scanf("%d %d", &classes[i].first, &classes[i].second);
+  }
+  sort(&clases[1], &classes[n+1]);
+  for (int i = 1; i <= n; ++i) {
+    dp[i] = 1;
+    for (int j = 1; j < i; ++j) {
+      if (classes[j].second <= classes[i].first) {
+        dp[i] = max(dp[i], 1 + dp[j]); 
+      }
+    }
+  }
+  int maxDisjoint = 0;
+  for (int i = 1; i <= n; ++i) {
+    maxDisjoint = max(maxDisjoint, dp[i]);
+  }
+  printf("%d\n", maxDisjoint);
+  return 0;
+}
+```
+### tercera solución
+
+No hablaremos de como se llega esta solución, se probará como es que funciona, pero cuando se vea el tema de greedy se verá más detalladamente como es que surgen estas ideas. Primero ordenaremos como en el problema anterior, luego se comenzará eligiendo el elemento más a la izquierda y sucesivamente tomando el que está más a la izquierda que no se sobrelape con los ya elegidos O(nlogn). 
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxN = 1e5 + 10;
+pair<int, int> classes[maxN];
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  for (int i = 1; i <= n; ++i) {
+    scanf("%d %d", &classes[i].first, &classes[i].second);
+  }
+  sort(&clases[1], &classes[n+1]);
+  vector<int> best = {1};
+  for (int i = 2; i <= n; ++i) {
+    if (classes[best.back()].second <= classes[i].first) {
+      best.push_back(i);
+    }
+  }
+  printf("%d\n", (int) best.size());
+  return 0;
+}
+```
 
 
