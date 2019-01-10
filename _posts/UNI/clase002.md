@@ -301,5 +301,97 @@ int main() {
   return 0;
 }
 ```
+prueba: en clases.
+
+## Divide & vencerás
+
+Divide y vencerás, bien como su nombre lo dice, propone dividir un problema en partes más pequeñas que sean simples de hacer para luego en el común de los casos armar una solución más compleja.
+
+## Ejemplo.
+
+Halle la raíz cuadrada de un número n entero, n menor o igual a 10^9, con al menos 6 digitos de precisión.
+
+### Armando una solución eficiente
+
+#### primera solución
+
+Una primera solución sería plantearnos una solución por busqueda completa, de tal forma que podriamos hallar la raiz cuadrada de n probando con valores con un incremento de epsilon. O(sqrt(n\*10^7))
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  double eps = 1e-7;
+  double sqrtn = 0.;
+  while ((sqrtn + eps) * (sqrtn + eps) <= n) {
+    sqrtn += eps;
+  }
+  printf("%lf\n", sqrtn);
+  return 0;
+}
+```
+
+#### segunda solución
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int n;
+  scanf("%d", &n);
+  double lo = 0, hi = 40000;
+  for (int i = 0; i <= 100; ++i) {  
+    double mid = lo + (hi-lo)/2;
+    if (mid * mid <= n) lo = mid;
+    else hi = mid;
+  }
+  printf("%lf\n", lo);
+  return 0;
+}
+```
+
+#### tercera solución
+
+Con el método de newtom se puede afrontar este problema en especifico de una forma más eficiente. [newtom's method](https://en.wikipedia.org/wiki/Fast_inverse_square_root)
+
+```cpp
+double Q_rsqrt(double number) {
+	double f;
+	double x2;
+	const double threehalfs = 1.5L;
+
+	x2 = number * 0.5L;
+	f  = number;
+	f  = f * ( threehalfs - ( x2 * f * f ) );
+	return f * number;
+}
+```
+
+#### cuarta solución
+
+Existe un paper muy interesante para solucionar este problema, en su momento fue un boom en la realización de videojuegos.
+[paper](https://web.archive.org/web/20160528003723/http://www.daxia.com:80/bibis/upload/406Fast_Inverse_Square_Root.pdf)
 
 
+```cpp
+float Q_rsqrt( float number )
+{
+	union {
+		float f;
+		uint32_t i;
+	} conv;
+	
+	float x2;
+	const float threehalfs = 1.5F;
+
+	x2 = number * 0.5F;
+	conv.f  = number;
+	conv.i  = 0x5f3759df - ( conv.i >> 1 );
+	conv.f  = conv.f * ( threehalfs - ( x2 * conv.f * conv.f ) );
+	return conv.f * number;
+}
+```
