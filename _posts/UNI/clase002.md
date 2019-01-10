@@ -121,7 +121,7 @@ Para esto definiremos complejidad de memoria como la mayor cantidad de memoria q
 
 #### Cuarta solución
 
-No implementaremos esta solución, pero esta solución incluye algo más de conocimientos en teoría de números sobretodo funciones generadoras y algo de cálculo complejo. para ello usaremos la función generadora de un dado P(x) tal que tenga n lados y cada uno tenga a\[i\] puntos. por ultimo la soluci\'on consta de revisar que la probabilidad de lanzar un dado 3 veces o una vez den el mismo resultado. lanzar un dado 3 veces lo podemos entender como P(x)^3. Luego  necesitamos saber que para dos polinomos la conv(P x Q) = conv(P) . conv(Q). Y solo faltaria hacer P x Q = inv(conv(P x Q)) = inv(conv(P) . conv(Q)). y esto se puede hacer con la transformada de fourier rápida en O((n+1000) log (n + 1000)).
+No implementaremos esta solución, pero esta solución incluye algo más de conocimientos en teoría de números sobretodo funciones generadoras y algo de cálculo complejo. para ello usaremos la función generadora de un dado P(x) tal que tenga n lados y cada uno tenga a\[i\] puntos. por último la solución consta de revisar que la probabilidad de lanzar un dado 3 veces o una vez den el mismo resultado. lanzar un dado 3 veces lo podemos entender como P(x)^3. Luego necesitamos saber que para dos polinomios la conv(P x Q) = conv(P) . conv(Q). Y solo faltaria hacer P x Q = inv(conv(P x Q)) = inv(conv(P) . conv(Q)). y esto se puede lograr con la transformada rápida de fourier en O((n+1000) log (n + 1000)).
 
 
 
