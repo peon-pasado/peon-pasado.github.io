@@ -336,6 +336,8 @@ int main() {
 
 #### segunda solución
 
+Para solucionarlo con un enfoque de divide y venceras, primero nos podemos dar cuenta que la función a calcular es una funcíón creciente, luego que el intervalo de respuestas es desde 0 hasta la raíz cuadrada de mil millones, Ahora nos podemos dar cuenta que si nos fijamos en el elemento medio del intervalo, y este al cuadrado es menor o igual a nuestro, entonces necesariamente todos los menores a la mitad van a ser menores a la raíz cuadrada de n, por otro lado, si este elemento al cuadrado es mayor a n, entonces todos los elementos mayores a la mitad son mayores a la raíz cuadrada de n, esto nos da un simple algoritmo de divide y venceras (se explicara más en clases).
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
